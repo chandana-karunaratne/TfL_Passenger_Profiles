@@ -1,0 +1,48 @@
+
+
+# The following queries were carried out on the SQL database that contains TfL passenger journeys.
+
+
+
+# Get total number of records
+
+mysql> SELECT COUNT(*) FROM stg_txntable;
+
+
+# Get total number of distinct passengers
+
+mysql> SELECT COUNT(DISTINCT prestigeid) FROM stg_txntable;
+
+
+# Get a description of the entire dataset
+
+mysql> DESCRIBE stg_txntable;
+
+
+# Get frequency of journeys based on passenger age (as recorded by TfL)
+
+mysql> SELECT pptpassengeragekey, COUNT(pptpassengeragekey) AS Frequency, COUNT(pptpassengeragekey)/(SELECT COUNT(pptpassengeragekey) FROM stg_txntable)*100 AS Percentage FROM stg_txntable GROUP BY pptpassengeragekey ORDER BY Frequency DESC;
+
+
+# Get frequency of journeys based on Oyster card type
+
+mysql> SELECT cardtypekey, COUNT(cardtypekey) AS Frequency, COUNT(cardtypekey)/(SELECT COUNT(cardtypekey) FROM stg_txntable)*100 AS Percentage FROM stg_txntable GROUP BY cardtypekey ORDER BY Frequency DESC;
+
+
+# Get frequency of journeys based on station of entry
+
+mysql> SELECT stationoffirstentrykey, COUNT(stationoffirstentrykey) AS Frequency, COUNT(stationoffirstentrykey)/(SELECT COUNT(stationoffirstentrykey) FROM stg_txntable)*100 AS Percentage FROM stg_txntable GROUP BY stationoffirstentrykey ORDER BY Frequency DESC;
+
+
+# Get frequency of journeys based on station of exit
+
+mysql> SELECT stationofexitkey, COUNT(stationofexitkey) AS Frequency, COUNT(stationofexitkey)/(SELECT COUNT(stationofexitkey) FROM stg_txntable)*100 AS Percentage FROM stg_txntable GROUP BY stationofexitkey ORDER BY Frequency DESC;
+
+
+# Get frequency of journeys based on the day of the week 
+
+mysql> SELECT daytype, COUNT(daytype) AS Frequency, COUNT(daytype)/(SELECT COUNT(daytype) FROM stg_txntable)*100 AS Percentage FROM stg_txntable GROUP BY daytype ORDER BY Frequency DESC;
+
+
+
+
