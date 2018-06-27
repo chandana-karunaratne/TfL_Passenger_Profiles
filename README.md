@@ -1,2 +1,2 @@
 # TfL_Passenger_Profiles
-Python, MySQL, and SparkSQL code for developing socio-demographic Transport for London (TfL) passenger profiles using dataset containing Oyster card passenger journeys and London Output Area Classification (LOAC) dataset.
+Python, MySQL, and SparkSQL code for developing socio-demographic profiles for Transport for London (TfL) passengers using dataset containing Oyster card passenger journeys coupled with London Output Area Classification (LOAC) dataset.
